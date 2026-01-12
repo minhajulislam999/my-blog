@@ -3,8 +3,8 @@ import { BsBookmark } from "react-icons/bs";
 
 
 
-const Blog = ({ blog }) => {
-    console.log(blog);
+const Blog = ({ blog, handleBookMark }) => {
+    
     return (
         <div>
             <div className="card bg-base-100 w-96 shadow-sm">
@@ -26,7 +26,7 @@ const Blog = ({ blog }) => {
                     
 
                     <div className="relative bg-gray-900 p-5 rounded-xl">
-                        <button className="absolute top-4 right-4 text-gray-300 hover:text-yellow-400 transition">
+                        <button onClick={()=>handleBookMark(blog)} className="absolute top-4 right-4 text-gray-300 hover:text-yellow-400 transition">
                             <BsBookmark size={20} />
                         </button>
 
