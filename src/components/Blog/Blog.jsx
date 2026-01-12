@@ -57,7 +57,7 @@ const Blog = ({ blog, handleBookMark, handleReadingTime }) => {
                         ))}
                     </div>
 
-                    <button onClick={()=>handleReadingTime(blog.readingTime)} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    <button onClick={()=>handleReadingTime(blog.readingTime, blog.id)} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                         Mark as Read
                     </button>
 
