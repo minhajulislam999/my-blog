@@ -3,7 +3,7 @@ import { BsBookmark } from "react-icons/bs";
 
 
 
-const Blog = ({ blog, handleBookMark, handleReadingTime }) => {
+const Blog = ({ blog, handleBookMark, handleReadingTime , handleSelectedSkills}) => {
     
     return (
         <div>
@@ -50,6 +50,7 @@ const Blog = ({ blog, handleBookMark, handleReadingTime }) => {
                         {blog.skills.map((skill, index) => (
                             <span
                                 key={index}
+                                onClick={()=> handleSelectedSkills(skill)}
                                 className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full cursor-pointer hover:bg-blue-200 transition"
                             >
                                 {skill}

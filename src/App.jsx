@@ -5,9 +5,20 @@ import Blogs from './components/Navbar/Blogs/Blogs.jsx';
 function App() {
   const [bookMarked, setBookMarked] = useState([]);
   const [readingTime, setReadingTime] =useState([]);
+  const [selectedSkills, setSelectedSkills] = useState([]);
+
+  const handleSelectedSkills=(skill)=>{
+    // setSelectedSkills(skill)
+    setSelectedSkills(prev => {
+    if (prev.includes(skill)) return prev;
+    return [...prev, skill];
+  })
+  }
 
   const handleReadingTime=(time,id)=>{
-    setReadingTime([readingTime + time])
+      setReadingTime(prev => prev + time);
+
+    // setReadingTime([readingTime + time])
     handleRemoveFromBookmark(id)
     
 
@@ -30,7 +41,8 @@ function App() {
         <div className="left-container w-[70%]">
 
           <Blogs handleBookMark={handleBookMark} 
-          handleReadingTime={handleReadingTime} />
+          handleReadingTime={handleReadingTime}
+          handleSelectedSkills={handleSelectedSkills} />
 
         </div>
         <div className="right-container w-[30%]">
@@ -61,9 +73,36 @@ function App() {
           🔖
         </span>
       </div>
+
+      
     ))
   }
 </div>
+<div className="grid grid-cols-3 gap-4">
+  
+  {/* Left side blogs */}
+  <div className="col-span-2">
+    {/* blogs here */}
+  </div>
+
+  {/* Right side */}
+  <div className="border p-4 rounded">
+    <h2 className="font-bold mb-2">Selected Skills</h2>
+
+    {selectedSkills.length === 0 && (
+      <p className="text-sm text-gray-500">No skill selected</p>
+    )}
+
+    {selectedSkills.map((skill, index) => (
+      <p key={index} className="text-sm">
+        • {skill}
+      </p>
+    ))}
+  </div>
+
+</div>
+
+
 
         </div>
 
